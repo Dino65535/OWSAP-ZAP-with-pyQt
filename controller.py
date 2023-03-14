@@ -12,10 +12,9 @@ import time
 
 URL = ""
 
-#http://example.com
-apikey = 'changeme'
+apikey = 'changeme' #改成你的APIKey
 
-zap = ZAPv2(apikey=apikey, proxies={'http': 'http://127.0.0.1:8180', 'https': 'http://127.0.0.1:8180'})
+zap = ZAPv2(apikey=apikey, proxies={'http': 'http://127.0.0.1:8180', 'https': 'http://127.0.0.1:8180'}) #改成你的proxy port
 
 zap.core.delete_all_alerts()
 
