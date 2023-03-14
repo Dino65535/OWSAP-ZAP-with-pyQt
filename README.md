@@ -1,5 +1,6 @@
 # OWSAP-ZAP-with-pyQt
-寫一個簡單的UI來操作ZAP
+寫一個簡單的UI來操作ZAP  
+![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/eb5dad03339d14adc081e34e7412490b1953abc0/img/UI.png "UI")
 
 ## 環境
     Python    : 3.11.2
@@ -10,6 +11,7 @@
 
 ## 首次設定
 * 將 ZAP Proixes Prot 改成 `8180` ， API Key 改成 `changeme` (或在 controller.py 裡將相關參數設定成自己環境的)
+![Config img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/eb5dad03339d14adc081e34e7412490b1953abc0/img/config.png "Config")
 
 ## 使用說明
 * 在 Target URL 輸入想要掃描的目標網址，按下 `Scan` 開始掃描，掃描完後將自動顯示 Alert Summary。
