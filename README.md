@@ -20,7 +20,7 @@
 ## 使用說明
 * 在 Target URL 輸入想要掃描的目標網址，按下 `Scan` 開始掃描，掃描完後將自動顯示 Alert Summary。
 * `Report` 可以匯出詳細報告，並在左側視窗顯示
-* `Clear` 可以清除網址，Delete 可以清除 `Alert`
+* `Clear` 可以清除網址，`Delete` 可以清除 Alert
 
 ## Test
 * 大概這樣 之後有想到或有新功能再補充
