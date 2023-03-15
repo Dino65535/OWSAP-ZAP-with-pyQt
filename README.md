@@ -9,7 +9,7 @@
     OWASP ZAP            : 2.12.0
 * [PyQt5](https://pypi.org/project/PyQt5/) (pip install PyQt5)
 * [zap-python-api](https://github.com/zaproxy/zap-api-python) (pip install python-owasp-zap-v2.4)
-* 使用 [Qt Designer](https://build-system.fman.io/qt-designer-download) 編輯 (單純使用不需下載)
+* 使用 [Qt Designer](https://build-system.fman.io/qt-designer-download) 編輯 (單純使用的話不需下載)
 
 ### 首次設定
 * 將 ZAP 打開並把 ZAP Proixes Prot 改成 `8180` ， API Key 改成 `changeme` (或在 controller.py 裡將相關參數設定成自己環境的)
@@ -24,7 +24,7 @@
 * `Report` 可以匯出詳細報告，並在左側視窗顯示
 * `Clear` 可以清除網址，`Delete` 可以清除 Alert
 
-## Test
+## It's test version
 * 大概這樣 之後有想到或有新功能再補充
 * 目前不防呆 所以亂按可能有bug(?
 
