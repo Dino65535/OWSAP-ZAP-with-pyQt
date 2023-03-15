@@ -7,6 +7,7 @@
     pyQt5                : 5.15.9
     OWASP ZAP Python API : 2.4
     OWASP ZAP            : 2.12.0
+* [OWASP ZAP](https://www.zaproxy.org/download/)
 * [PyQt5](https://pypi.org/project/PyQt5/) (pip install PyQt5)
 * [zap-python-api](https://github.com/zaproxy/zap-api-python) (pip install python-owasp-zap-v2.4)
 * 使用 [Qt Designer](https://build-system.fman.io/qt-designer-download) 編輯 (單純使用的話不需下載)
