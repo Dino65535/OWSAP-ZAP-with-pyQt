@@ -3,10 +3,12 @@
 ![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/eb5dad03339d14adc081e34e7412490b1953abc0/img/UI.png "UI")
 
 ### 環境
-    Python    : 3.11.2
-    pyQt5     : 5.15.9
-    OWASP ZAP : 2.12.0
-* [pyQt5](https://pypi.org/project/PyQt5/) 安裝 :: pip install PyQt5
+    Python               : 3.11.2
+    pyQt5                : 5.15.9
+    OWASP ZAP Python API : 2.4
+    OWASP ZAP            : 2.12.0
+* [PyQt5](https://pypi.org/project/PyQt5/) (pip install PyQt5)
+* [zap-python-api](https://github.com/zaproxy/zap-api-python) (pip install python-owasp-zap-v2.4)
 * 使用 [Qt Designer](https://build-system.fman.io/qt-designer-download) 編輯 (單純使用不需下載)
 
 ### 首次設定
