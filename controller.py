@@ -4,11 +4,10 @@ from PyQt5.QtWidgets import QFileDialog, QApplication, QMainWindow, QPushButton
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from UI import Ui_MainWindow
-
+#reference : https://github.com/zaproxy/zap-api-python/tree/master/src/zapv2
 from zapv2 import ZAPv2
 
 import time
-#pyuic5 -x pyqt.ui -o UI.py
 
 URL = ""
 
@@ -31,6 +30,15 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         self.ui.URL_Clear_Button.clicked.connect(self.URL_Clear)
         self.ui.Delete_All_Alert_Button.clicked.connect(self.Alter_Delete)
         self.ui.Report_Alert_Button.clicked.connect(self.Alter_Report)
+
+        self.ui.High_Alert_Label.setStyleSheet('color:#f00;')
+        self.ui.High_Alert_Number.setStyleSheet('color:#f00;')
+        self.ui.Medium_Alert_label.setStyleSheet('color:#FF8C00')
+        self.ui.Medium_Alert_Number.setStyleSheet('color:#FF8C00')
+        self.ui.Low_Alert_Label.setStyleSheet('color:#e6c300')
+        self.ui.Low_Alert_Number.setStyleSheet('color:#e6c300')
+        self.ui.Info_Alert_Label.setStyleSheet("color:#6495ED")
+        self.ui.Info_Alert_Number.setStyleSheet("color:#6495ED")
 
     def URL_Submit(self):
         global URL
@@ -59,7 +67,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         allAlert = zap.core.alerts()
         a = 1
         for alert in allAlert:
-            reportFile.write("{}\n".format(a))
+            reportFile.write("No.{}  Alert\n".format(a))
             reportFile.write("cweid : {}\n".format(alert.get("cweid")))
             reportFile.write("confidence : {}\n".format(alert.get("confidence")))
             reportFile.write("wascid : {}\n".format(alert.get("wascid")))
@@ -72,6 +80,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
 
         reportText = open(reportPath[0]).read()
         self.ui.show.setText(reportText) 
+
 class WorkerThread(QThread):
     progressChanged = QtCore.pyqtSignal(int)
     highAlertNumber = QtCore.pyqtSignal(str)
@@ -119,9 +128,11 @@ if __name__ == '__main__':
 #       >> check alert exist
 #       >> setting default file path
 # V show alert report
-# X search CWE & WASC website
-# X OWASP ZAP setting tutorial(or in GitHub README)
+# X search CWE & WASC website with other window?
+# V OWASP ZAP setting tutorial(or in GitHub README)
 # X setting ZAP apikey & proxy port
 
 ### coding style : UI item/function 開頭大寫 用_分隔 _後大寫
 ###                controller       開頭小寫 不分隔 第二字後開頭大寫
+
+### pyuic5 -x pyqt.ui -o UI.py
