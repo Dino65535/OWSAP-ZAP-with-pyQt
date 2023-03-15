@@ -1,6 +1,6 @@
-from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtWidgets import QFileDialog, QApplication, QMainWindow, QPushButton
+from PyQt5 import QtCore, QtWidgets, Qt, QtGui
+from PyQt5.QtWidgets import * 
+from PyQt5.QtGui import * 
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from UI import Ui_MainWindow
@@ -33,12 +33,18 @@ class MainWindow_controller(QtWidgets.QMainWindow):
 
         self.ui.High_Alert_Label.setStyleSheet('color:#f00;')
         self.ui.High_Alert_Number.setStyleSheet('color:#f00;')
-        self.ui.Medium_Alert_label.setStyleSheet('color:#FF8C00')
+        self.ui.Medium_Alert_Label.setStyleSheet('color:#FF8C00')
         self.ui.Medium_Alert_Number.setStyleSheet('color:#FF8C00')
         self.ui.Low_Alert_Label.setStyleSheet('color:#e6c300')
         self.ui.Low_Alert_Number.setStyleSheet('color:#e6c300')
-        self.ui.Info_Alert_Label.setStyleSheet("color:#6495ED")
-        self.ui.Info_Alert_Number.setStyleSheet("color:#6495ED")
+        self.ui.Info_Alert_Label.setStyleSheet('color:#6495ED')
+        self.ui.Info_Alert_Number.setStyleSheet('color:#6495ED')
+
+        font = QFont('Agency FB', 20)
+        self.ui.High_Alert_Label.setFont(font)
+        self.ui.Medium_Alert_Label.setFont(font)
+        self.ui.Low_Alert_Label.setFont(font)
+        self.ui.Info_Alert_Label.setFont(font)
 
     def URL_Submit(self):
         global URL
@@ -58,7 +64,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         self.ui.Medium_Alert_Number.setText("0")
         self.ui.Low_Alert_Number.setText("0")
         self.ui.Info_Alert_Number.setText("0")
-        self.ui.show.clear()
+        self.ui.Report_Text.clear()
 
     def Alter_Report(self):
         reportPath = QFileDialog.getSaveFileName(self, "選擇保存路徑", "./Alert_Report.txt", "Text Files (*.txt)")
@@ -79,7 +85,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         reportFile.close()
 
         reportText = open(reportPath[0]).read()
-        self.ui.show.setText(reportText) 
+        self.ui.Report_Text.setText(reportText) 
 
 class WorkerThread(QThread):
     progressChanged = QtCore.pyqtSignal(int)
