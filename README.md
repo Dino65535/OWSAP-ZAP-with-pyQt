@@ -1,5 +1,4 @@
 # OWSAP-ZAP-with-pyQt
-寫一個簡單的UI來操作ZAP  
 ![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/6014c994eb88519afa3f301e8201e7026b273c7f/img/UI.png "UI")
 
 ### 環境
