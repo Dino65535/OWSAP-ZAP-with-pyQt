@@ -17,7 +17,8 @@
 ![Config img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/eb5dad03339d14adc081e34e7412490b1953abc0/img/config.png "Config")
 
 ### 檔案說明
-* `pyqt.ui` 是用 Qt Designer 設計完UI的檔案，然後透過 pyQt5 轉成 `UI.py`
+* `.ui` 是用 Qt Designer 設計完UI的檔案，然後透過 pyQt5 轉成 `.py`
+* `main_window.py` 是主畫面視窗，`search_window.py` 是搜尋畫面視窗
 * `controller.py` 則是負責邏輯操作部分
 
 ## 使用說明
@@ -25,7 +26,7 @@
 * `Report` 可以匯出詳細報告，並在左側視窗顯示
 * `Clear` 可以清除網址，`Delete` 可以清除 Alert
 
-## It's test version
+## It's test version 
 * 大概這樣 之後有想到或有新功能再補充
 * 目前不防呆 所以亂按可能有bug(?
 

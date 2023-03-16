@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import * 
 from PyQt5.QtCore import QThread, pyqtSignal
 
-from UI import Ui_MainWindow
+from main_UI import Ui_MainWindow
 #reference : https://github.com/zaproxy/zap-api-python/tree/master/src/zapv2
 from zapv2 import ZAPv2
 
@@ -134,11 +134,12 @@ if __name__ == '__main__':
 #       >> check alert exist
 #       >> setting default file path
 # V show alert report
-# X search CWE & WASC website with other window?
+# X search CWE & WASC website with other window?  <<< here now
 # V OWASP ZAP setting tutorial(or in GitHub README)
 # X setting ZAP apikey & proxy port
 
 ### coding style : UI item/function 開頭大寫 用_分隔 _後大寫
 ###                controller       開頭小寫 不分隔 第二字後開頭大寫
 
-### pyuic5 -x pyqt.ui -o UI.py
+### pyuic5 -x main_window.ui -o main_UI.py
+### pyuic5 -x search_window.ui -o search_UI.py
