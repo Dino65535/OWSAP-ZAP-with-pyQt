@@ -3,6 +3,9 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import * 
 from PyQt5.QtCore import QThread, pyqtSignal
 
+import requests
+from bs4 import BeautifulSoup
+
 from main_UI import Ui_MainWindow
 from search_UI import Ui_Search_Window
 #reference : https://github.com/zaproxy/zap-api-python/tree/master/src/zapv2
@@ -52,7 +55,7 @@ class MainWindow_Controller(QtWidgets.QMainWindow):
         global URL
         URL = self.ui.URL_Line_Edit.text()
             
-        self.Search_Work = WorkerThread()
+        self.Search_Work = Scan_Worker_Thread()
         self.Search_Work.start()
 
     def URL_Clear(self):
@@ -92,7 +95,7 @@ class MainWindow_Controller(QtWidgets.QMainWindow):
     def Search_Window_Show(self):
         child.show()
 
-class WorkerThread(QThread):
+class Scan_Worker_Thread(QThread):
     progressChanged = QtCore.pyqtSignal(int)
     highAlertNumber = QtCore.pyqtSignal(str)
     mediumAlertNumber = QtCore.pyqtSignal(str)
@@ -129,6 +132,33 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
         super().__init__()
         self.ui = Ui_Search_Window()
         self.ui.setupUi(self)
+        self.Setup_Contorll()
+
+    def Setup_Contorll(self):
+        self.ui.Serach_Button.clicked.connect(self.ID_Submit)
+
+    def ID_Submit(self):
+        ID = self.ui.ID_Serach_Line_Edit.text()
+        response = requests.get("https://cwe.mitre.org/data/definitions/" + ID + ".html")
+
+        if response.status_code != requests.codes.ok:
+            print("伺服器回應異常 或 CWE-ID輸入錯誤")
+        else:
+            soup = BeautifulSoup(response.text, "lxml")
+
+            self.ui.Name_Label.setText("Name : " + soup.find("h2").string) #Name
+
+            for s in soup.find_all(id = "Description"): #Description
+                t = s.find(class_ = "indent")
+                self.ui.Discription_Label.setText("Discription : " + t.string)
+
+            temp = ""
+            for s in soup.find("div", id = "Observed_Examples").find_all("tr"):  #CVE
+                if(s.find("a") == None):
+                    continue
+                else:
+                    temp += s.find("a").string + "    " + s.find("div", class_ = "indent").string + "\n"
+            self.ui.CVE_Label.setText("CVE : \n" + temp)
 
 if __name__ == '__main__':
     import sys
