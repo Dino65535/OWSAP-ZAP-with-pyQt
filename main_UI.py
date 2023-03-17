@@ -142,6 +142,12 @@ class Ui_MainWindow(object):
         self.line.setFrameShape(QtWidgets.QFrame.HLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
+        self.ID_Search_Button = QtWidgets.QPushButton(self.centralwidget)
+        self.ID_Search_Button.setGeometry(QtCore.QRect(700, 430, 81, 41))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.ID_Search_Button.setFont(font)
+        self.ID_Search_Button.setObjectName("ID_Search_Button")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 792, 21))
@@ -171,6 +177,7 @@ class Ui_MainWindow(object):
         self.Low_Alert_Number.setText(_translate("MainWindow", "0"))
         self.Delete_All_Alert_Button.setText(_translate("MainWindow", "Delete"))
         self.Report_Alert_Button.setText(_translate("MainWindow", "Report"))
+        self.ID_Search_Button.setText(_translate("MainWindow", "CWE"))
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import QThread, pyqtSignal
 
 from main_UI import Ui_MainWindow
+from search_UI import Ui_Search_Window
 #reference : https://github.com/zaproxy/zap-api-python/tree/master/src/zapv2
 from zapv2 import ZAPv2
 
@@ -17,19 +18,20 @@ zap = ZAPv2(apikey=apikey, proxies={'http': 'http://127.0.0.1:8180', 'https': 'h
 
 zap.core.delete_all_alerts()
 
-class MainWindow_controller(QtWidgets.QMainWindow):
+class MainWindow_Controller(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.Setup_Control()
-
+        
     def Setup_Control(self):
         self.ui.URL_Line_Edit.setText("http://example.com")
         self.ui.URL_Submit_Button.clicked.connect(self.URL_Submit)
         self.ui.URL_Clear_Button.clicked.connect(self.URL_Clear)
         self.ui.Delete_All_Alert_Button.clicked.connect(self.Alter_Delete)
         self.ui.Report_Alert_Button.clicked.connect(self.Alter_Report)
+        self.ui.ID_Search_Button.clicked.connect(self.Search_Window_Show)
 
         self.ui.High_Alert_Label.setStyleSheet('color:#f00;')
         self.ui.High_Alert_Number.setStyleSheet('color:#f00;')
@@ -65,7 +67,7 @@ class MainWindow_controller(QtWidgets.QMainWindow):
         self.ui.Low_Alert_Number.setText("0")
         self.ui.Info_Alert_Number.setText("0")
         self.ui.Report_Text.clear()
-
+        
     def Alter_Report(self):
         reportPath = QFileDialog.getSaveFileName(self, "選擇保存路徑", "./Alert_Report.txt", "Text Files (*.txt)")
         reportFile = open(reportPath[0], "w") #"a"
@@ -86,6 +88,9 @@ class MainWindow_controller(QtWidgets.QMainWindow):
 
         reportText = open(reportPath[0]).read()
         self.ui.Report_Text.setText(reportText) 
+
+    def Search_Window_Show(self):
+        child.show()
 
 class WorkerThread(QThread):
     progressChanged = QtCore.pyqtSignal(int)
@@ -118,15 +123,22 @@ class WorkerThread(QThread):
         self.mediumAlertNumber.emit(str(summary.get("Medium")))
         self.lowAlertNumber.emit(str(summary.get("Low")))
         self.infoAlertNumber.emit(str(summary.get("Informational")))
-    
+
+class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_Search_Window()
+        self.ui.setupUi(self)
+
 if __name__ == '__main__':
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow_controller()
+    window = MainWindow_Controller()
     window.show()
+    child = SearchWindow_Controller()
     sys.exit(app.exec_())
 
-
+ 
 # TODO list 
 # V UI show alert summary
 # V detail alert report to text file
