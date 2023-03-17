@@ -1,5 +1,4 @@
 # OWSAP-ZAP-with-pyQt
-寫一個簡單的UI來操作ZAP  
 ![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/6014c994eb88519afa3f301e8201e7026b273c7f/img/UI.png "UI")
 
 ### 環境
@@ -17,7 +16,7 @@
 ![Config img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/eb5dad03339d14adc081e34e7412490b1953abc0/img/config.png "Config")
 
 ### 檔案說明
-* `.ui` 是用 Qt Designer 設計完UI的檔案，然後透過 pyQt5 轉成 `.py`
+* `.ui` 是用 Qt Designer 設計完 UI 的檔案，然後透過 pyQt5 轉成 `.py`
 * `main_window.py` 是主畫面視窗，`search_window.py` 是搜尋畫面視窗
 * `controller.py` 則是負責邏輯操作部分
 
