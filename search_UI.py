@@ -92,13 +92,3 @@ class Ui_Search_Window(object):
         self.Name_Label.setText(_translate("Search_Window", "Name : "))
         self.Discription_Label.setText(_translate("Search_Window", "Discription : "))
         self.CVE_Label.setText(_translate("Search_Window", "CVE : "))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Search_Window = QtWidgets.QWidget()
-    ui = Ui_Search_Window()
-    ui.setupUi(Search_Window)
-    Search_Window.show()
-    sys.exit(app.exec_())

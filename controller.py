@@ -30,6 +30,8 @@ class MainWindow_Controller(QtWidgets.QMainWindow):
         
     def Setup_Control(self):
         self.ui.URL_Line_Edit.setText("http://example.com")
+        self.ui.Report_Text.setReadOnly(True)
+
         self.ui.URL_Submit_Button.clicked.connect(self.URL_Submit)
         self.ui.URL_Clear_Button.clicked.connect(self.URL_Clear)
         self.ui.Delete_All_Alert_Button.clicked.connect(self.Alter_Delete)
@@ -60,7 +62,7 @@ class MainWindow_Controller(QtWidgets.QMainWindow):
 
     def URL_Clear(self):
         self.ui.URL_Line_Edit.setText("")
-        self.ui.Search_Progress_Bar.setValue(0)      
+        URL = ""
 
     def Alter_Delete(self):
         zap.core.delete_all_alerts()
@@ -70,7 +72,8 @@ class MainWindow_Controller(QtWidgets.QMainWindow):
         self.ui.Low_Alert_Number.setText("0")
         self.ui.Info_Alert_Number.setText("0")
         self.ui.Report_Text.clear()
-        
+        self.ui.Search_Progress_Bar.setValue(0) 
+
     def Alter_Report(self):
         reportPath = QFileDialog.getSaveFileName(self, "選擇保存路徑", "./Alert_Report.txt", "Text Files (*.txt)")
         reportFile = open(reportPath[0], "w") #"a"
@@ -183,5 +186,5 @@ if __name__ == '__main__':
 ### coding style : UI item/function 開頭大寫 用_分隔 _後大寫
 ###                controller       開頭小寫 不分隔 第二字後開頭大寫
 
-### pyuic5 -x main_window.ui -o main_UI.py
-### pyuic5 -x search_window.ui -o search_UI.py
+### pyuic5 main_window.ui -o main_UI.py
+### pyuic5 search_window.ui -o search_UI.py

@@ -178,13 +178,3 @@ class Ui_MainWindow(object):
         self.Delete_All_Alert_Button.setText(_translate("MainWindow", "Delete"))
         self.Report_Alert_Button.setText(_translate("MainWindow", "Report"))
         self.ID_Search_Button.setText(_translate("MainWindow", "CWE"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
