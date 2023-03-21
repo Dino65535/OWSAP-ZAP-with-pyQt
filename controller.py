@@ -139,6 +139,9 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
 
     def Setup_Contorll(self):
         self.ui.Serach_Button.clicked.connect(self.ID_Submit)
+        self.ui.C_Button.clicked.connect(self.Clear)
+
+        self.ui.Name_Text.setLineWrapMode(QtWidgets.QTextEdit.NoWrap)
 
     def ID_Submit(self):
         ID = self.ui.ID_Serach_Line_Edit.text()
@@ -149,11 +152,11 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
         else:
             soup = BeautifulSoup(response.text, "lxml")
 
-            self.ui.Name_Label.setText("Name : " + soup.find("h2").string) #Name
+            self.ui.Name_Text.setText(soup.find("h2").string)
 
             for s in soup.find_all(id = "Description"): #Description
                 t = s.find(class_ = "indent")
-                self.ui.Discription_Label.setText("Discription : " + t.string)
+                self.ui.Discription_Text.setText(t.string)
 
             temp = ""
             for s in soup.find("div", id = "Observed_Examples").find_all("tr"):  #CVE
@@ -161,7 +164,12 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
                     continue
                 else:
                     temp += s.find("a").string + "    " + s.find("div", class_ = "indent").string + "\n"
-            self.ui.CVE_Label.setText("CVE : \n" + temp)
+            self.ui.CVE_Text.setText(temp)
+
+    def Clear(self):
+        self.ui.Name_Text.clear()
+        self.ui.Discription_Text.clear()
+        self.ui.CVE_Text.clear()
 
 if __name__ == '__main__':
     import sys
