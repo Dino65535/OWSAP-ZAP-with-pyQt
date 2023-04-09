@@ -1,5 +1,6 @@
 # OWSAP-ZAP-with-pyQt
-![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/6014c994eb88519afa3f301e8201e7026b273c7f/img/UI.png "UI")
+![UI img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/f41fb6b7120b6caa069c1c81010a5d7429a9b1af/img/UI.png "UI Window")
+![Search img](https://github.com/Dino65535/OWSAP-ZAP-with-pyQt/blob/f41fb6b7120b6caa069c1c81010a5d7429a9b1af/img/CWE_Search.png "Search Window")
 
 ### 環境
     Python               : 3.11.2
@@ -25,9 +26,9 @@
 * `Report` 可以匯出詳細報告，並在左側視窗顯示
 * `Clear` 可以清除網址，`Delete` 可以清除 Alert
 
-## It's test version 
-* 大概這樣 之後有想到或有新功能再補充
-* 目前不防呆 所以亂按可能有bug(?
+## 隨便寫寫的小東西
+* 不防呆 所以亂按可能有bug(?
+* 由於換了專題題目的研究主題，所以應該不會在繼續更新
 
 ## 已知 Bug
-* 不同裝置(解析度)上字體顯示可能會出錯 (待修正)
+* 不同裝置(解析度)上字體顯示可能會出錯 
