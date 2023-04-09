@@ -148,7 +148,7 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
         response = requests.get("https://cwe.mitre.org/data/definitions/" + ID + ".html")
 
         if response.status_code != requests.codes.ok:
-            print("伺服器回應異常 或 CWE-ID輸入錯誤")
+            self.ui.Name_Text.setText("伺服器回應異常 或 CWE-ID輸入錯誤")
         else:
             soup = BeautifulSoup(response.text, "lxml")
 
@@ -167,6 +167,7 @@ class SearchWindow_Controller(QtWidgets.QMdiSubWindow):
             self.ui.CVE_Text.setText(temp)
 
     def Clear(self):
+        self.ui.ID_Serach_Line_Edit.clear()
         self.ui.Name_Text.clear()
         self.ui.Discription_Text.clear()
         self.ui.CVE_Text.clear()
@@ -179,20 +180,6 @@ if __name__ == '__main__':
     child = SearchWindow_Controller()
     sys.exit(app.exec_())
 
- 
-# TODO list 
-# V UI show alert summary
-# V detail alert report to text file
-# V     >> select create/report file path
-#       >> check alert exist
-#       >> setting default file path
-# V show alert report
-# X search CWE & WASC website with other window?  <<< here now
-# V OWASP ZAP setting tutorial(or in GitHub README)
-# X setting ZAP apikey & proxy port
-
-### coding style : UI item/function 開頭大寫 用_分隔 _後大寫
-###                controller       開頭小寫 不分隔 第二字後開頭大寫
-
+### 檔案轉換指令
 ### pyuic5 main_window.ui -o main_UI.py
 ### pyuic5 search_window.ui -o search_UI.py

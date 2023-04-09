@@ -67,47 +67,6 @@
     <string>Search</string>
    </property>
   </widget>
-  <widget class="QRadioButton" name="CWE_Radio_Button">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>20</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Agency FB</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>CWE</string>
-   </property>
-   <property name="checked">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QRadioButton" name="WASC_Radio_Button">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>20</y>
-     <width>91</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Agency FB</family>
-     <pointsize>20</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string>WASC</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="Name_Label">
    <property name="geometry">
     <rect>
@@ -241,9 +200,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="C_Button">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>290</x>
      <y>10</y>
-     <width>41</width>
+     <width>81</width>
      <height>41</height>
     </rect>
    </property>
@@ -254,15 +213,13 @@ p, li { white-space: pre-wrap; }
     </font>
    </property>
    <property name="text">
-    <string>C</string>
+    <string>Clear</string>
    </property>
   </widget>
   <zorder>Name_Text</zorder>
   <zorder>ID_Label</zorder>
   <zorder>ID_Serach_Line_Edit</zorder>
   <zorder>Serach_Button</zorder>
-  <zorder>CWE_Radio_Button</zorder>
-  <zorder>WASC_Radio_Button</zorder>
   <zorder>Name_Label</zorder>
   <zorder>Discription_Label</zorder>
   <zorder>CVE_Label</zorder>
